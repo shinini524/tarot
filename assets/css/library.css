@@ -1,0 +1,708 @@
+/* ========================================
+   Tarot Card Library - 타로 백과사전
+   ======================================== */
+
+.library-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.library-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.library-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.library-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* ========================================
+   필터 및 검색
+   ======================================== */
+.library-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 12px 24px;
+    background: var(--card-bg);
+    border: 1px solid rgba(107, 76, 154, 0.3);
+    border-radius: 30px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-gold);
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--accent-purple) 0%, #8b5fbf 100%);
+    border-color: var(--accent-purple);
+    color: white;
+    box-shadow: 0 5px 20px var(--glow-purple);
+}
+
+.library-search {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    background: var(--card-bg);
+    border: 1px solid rgba(107, 76, 154, 0.3);
+    border-radius: 40px;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 20px var(--glow-gold);
+    background: rgba(25, 25, 50, 0.9);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+/* ========================================
+   카드 리스트 그리드
+   ======================================== */
+.card-library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.library-card-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(107, 76, 154, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.library-card-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 15px 40px var(--glow-gold);
+}
+
+.library-card-image {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(107, 76, 154, 0.1), transparent);
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.library-card-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.library-card-item:hover .library-card-image img {
+    transform: scale(1.05);
+}
+
+.library-card-info {
+    padding: 18px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.library-card-number {
+    font-size: 0.75rem;
+    color: var(--accent-rose);
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.library-card-name-en {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.library-card-name-ko {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.library-card-keywords {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid rgba(107, 76, 154, 0.2);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.library-card-item:hover .library-card-keywords {
+    opacity: 1;
+    max-height: 200px;
+}
+
+.keyword-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    font-size: 0.7rem;
+    color: var(--accent-gold);
+    margin: 3px;
+    font-weight: 500;
+}
+
+.library-card-suit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background: rgba(107, 76, 154, 0.5);
+    border-radius: 15px;
+    font-size: 0.7rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   카드 상세 페이지
+   ======================================== */
+.card-detail-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.card-detail-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.detail-card-image-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.detail-card-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.detail-card-image:hover {
+    transform: scale(1.02);
+}
+
+.detail-card-basic-info {
+    margin-bottom: 20px;
+}
+
+.detail-card-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.detail-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.detail-card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.detail-meta-label {
+    color: var(--accent-rose);
+    font-weight: 600;
+}
+
+/* 키워드 영역 */
+.detail-keywords-section {
+    margin: 50px 0;
+    padding: 30px;
+    background: var(--card-bg);
+    border: 1px solid rgba(107, 76, 154, 0.3);
+    border-radius: 20px;
+}
+
+.detail-keywords-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.keywords-group {
+    margin-bottom: 30px;
+}
+
+.keywords-group:last-child {
+    margin-bottom: 0;
+}
+
+.keywords-group-title {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.keywords-group-title::before {
+    content: '✦';
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+}
+
+.keywords-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.detail-keyword-tag {
+    padding: 10px 18px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.detail-keyword-tag:hover {
+    background: rgba(212, 175, 55, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* 카드 상징 설명 */
+.detail-symbolism-section {
+    margin: 50px 0;
+    padding: 30px;
+    background: rgba(107, 76, 154, 0.08);
+    border-left: 4px solid var(--accent-purple);
+    border-radius: 0 15px 15px 0;
+}
+
+.detail-section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.detail-symbolism-text {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* 카드 해석 */
+.detail-meaning-section {
+    margin: 50px 0;
+}
+
+.meaning-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(107, 76, 154, 0.3);
+}
+
+.meaning-tab {
+    padding: 15px 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cinzel', serif;
+    margin-bottom: -2px;
+}
+
+.meaning-tab:hover {
+    color: var(--text-light);
+}
+
+.meaning-tab.active {
+    color: var(--accent-gold);
+    border-bottom-color: var(--accent-gold);
+}
+
+.meaning-content {
+    display: none;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.meaning-content.active {
+    display: block;
+}
+
+.meaning-text {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.meaning-fun {
+    padding: 20px;
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 0 15px 15px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* 상황별 해석 */
+.detail-situations-section {
+    margin: 50px 0;
+}
+
+.situations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.situation-card {
+    padding: 25px;
+    background: var(--card-bg);
+    border: 1px solid rgba(107, 76, 154, 0.3);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.situation-card:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.situation-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.situation-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.situation-text {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* 네비게이션 및 액션 버튼 */
+.detail-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid rgba(107, 76, 154, 0.3);
+}
+
+.nav-card-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background: transparent;
+    border: 1px solid rgba(107, 76, 154, 0.4);
+    border-radius: 30px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-card-btn:hover {
+    background: var(--accent-purple);
+    border-color: var(--accent-purple);
+    transform: translateX(-5px);
+}
+
+.nav-card-btn.next {
+    flex-direction: row-reverse;
+}
+
+.nav-card-btn.next:hover {
+    transform: translateX(5px);
+}
+
+.nav-card-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.nav-card-btn:disabled:hover {
+    transform: none;
+    background: transparent;
+}
+
+.detail-action-btn {
+    padding: 15px 35px;
+    background: linear-gradient(135deg, var(--accent-gold) 0%, #c9a227 100%);
+    border: none;
+    border-radius: 40px;
+    color: var(--primary-dark);
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.detail-action-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px var(--glow-gold);
+}
+
+/* 로딩 상태 */
+.library-loading {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.library-empty {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.library-empty-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+/* ========================================
+   반응형 디자인
+   ======================================== */
+@media (max-width: 768px) {
+    .library-content {
+        padding: 30px 15px;
+    }
+    
+    .library-filters {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+    
+    .card-library-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+    
+    .library-card-image {
+        min-height: 180px;
+        padding: 15px;
+    }
+    
+    .library-card-image img {
+        max-height: 150px;
+    }
+    
+    .library-card-info {
+        padding: 15px;
+    }
+    
+    .card-detail-content {
+        padding: 30px 15px;
+    }
+    
+    .detail-card-image {
+        max-width: 250px;
+    }
+    
+    .detail-keywords-section,
+    .detail-symbolism-section,
+    .meaning-content {
+        padding: 25px 20px;
+    }
+    
+    .situations-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .detail-navigation {
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px 20px;
+    }
+    
+    .nav-card-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .detail-action-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .meaning-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .meaning-tab {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-library-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .library-card-image {
+        min-height: 160px;
+        padding: 12px;
+    }
+    
+    .library-card-image img {
+        max-height: 130px;
+    }
+    
+    .library-card-info {
+        padding: 12px;
+    }
+    
+    .library-card-name-en {
+        font-size: 0.8rem;
+    }
+    
+    .library-card-name-ko {
+        font-size: 0.75rem;
+    }
+    
+    .detail-card-image {
+        max-width: 200px;
+    }
+    
+    .detail-card-name {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- ========================================
+     HEAD - 메타데이터 및 스타일시트
+     ======================================== -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Mystic Tarot - 타로의 신비로운 세계</title>
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <link rel="stylesheet" href="assets/css/library.css">
+</head>
+
+<!-- ========================================
+     BODY - 페이지 본문
+     ======================================== -->
+<body>
+    <!-- ======================================== -->
+    <!-- 배경 효과 -->
+    <!-- ======================================== -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <!-- ======================================== -->
+    <!-- 네비게이션 바 -->
+    <!-- ======================================== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- 로고 -->
+            <div class="navbar-logo" onclick="goToPage('main-page')">
+                <span class="nav-moon-icon">☽</span>
+                <span class="nav-logo-text">Mystic Tarot</span>
+                <span class="nav-sun-icon">☀</span>
+            </div>
+            
+            <!-- 햄버거 메뉴 -->
+            <button class="navbar-toggle" id="navbar-toggle" onclick="toggleNavbar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- 메뉴 -->
+            <ul class="navbar-menu" id="navbar-menu">
+                <li class="navbar-item">
+                    <a href="#main" onclick="goToPage('main-page'); return false;" class="navbar-link">홈</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#library" onclick="goToLibraryPage(); return false;" class="navbar-link">카드 백과사전</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#about" onclick="openPolicy('about'); return false;" class="navbar-link">서비스 소개</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#contact" onclick="goToContactPage(); return false;" class="navbar-link">문의하기</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#terms" onclick="openPolicy('terms'); return false;" class="navbar-link">이용약관</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#privacy" onclick="openPolicy('privacy'); return false;" class="navbar-link">개인정보처리방침</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======================================== -->
+    <!-- 메인 컨테이너 -->
+    <!-- ======================================== -->
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="logo">
+                <span class="moon-icon">☽</span>
+                <h1>Mystic Tarot</h1>
+                <span class="sun-icon">☀</span>
+            </div>
+            <p class="tagline">당신의 운명을 비추는 신비로운 거울</p>
+        </header>
+
+        <!-- ======================================== -->
+        <!-- 페이지 섹션 -->
+        <!-- ======================================== -->
+        
+        <!-- 1. 메인 페이지 -->
+        <section id="main-page" class="page active">
+            <div class="main-content">
+                <div class="crystal-ball">
+                    <div class="glow"></div>
+                    <div class="inner-glow"></div>
+                </div>
+                
+                <h2 class="welcome-text">오늘, 당신에게 전하는<br>우주의 메시지</h2>
+                
+                <div class="spread-selection">
+                    <h3>스프레드 선택</h3>
+                    <div class="spread-buttons">
+                        <button class="spread-btn" data-spread="1">
+                            <span class="card-icon">🂠</span>
+                            <span class="spread-name">원 카드</span>
+                            <span class="spread-desc">오늘의 메시지</span>
+                        </button>
+                        <button class="spread-btn" data-spread="3">
+                            <span class="card-icon">🂠🂠🂠</span>
+                            <span class="spread-name">쓰리 카드</span>
+                            <span class="spread-desc">과거 · 현재 · 미래</span>
+                        </button>
+                        <button class="spread-btn" data-spread="celtic">
+                            <span class="card-icon">✦</span>
+                            <span class="spread-name">켈틱 크로스</span>
+                            <span class="spread-desc">심층 분석 (10장)</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 질문 입력 페이지 -->
+        <section id="question-page" class="page">
+            <button class="back-btn" onclick="goToPage('main-page')">
+                <span>←</span> 돌아가기
+            </button>
+            
+            <div class="question-content">
+                <h2>마음속 질문을 떠올려주세요</h2>
+                
+                <!-- 추천 질문 -->
+                <div class="question-options">
+                    <h3>추천 질문</h3>
+                    <div class="preset-questions">
+                        <button class="question-btn">오늘 나에게 필요한 메시지는?</button>
+                        <button class="question-btn">현재 고민에 대한 조언은?</button>
+                        <button class="question-btn">나의 연애운은 어떨까?</button>
+                        <button class="question-btn">일과 커리어에 대한 안내는?</button>
+                        <button class="question-btn">지금 나에게 숨겨진 가능성은?</button>
+                        <button class="question-btn">관계에서 주의해야 할 점은?</button>
+                    </div>
+                </div>
+                
+                <!-- 직접 입력 -->
+                <div class="custom-question">
+                    <h3>또는 직접 입력하세요</h3>
+                    <textarea id="question-input" placeholder="카드에게 묻고 싶은 질문을 자유롭게 적어주세요..."></textarea>
+                </div>
+                
+                <!-- 시작 버튼 -->
+                <button class="start-btn" onclick="startReading()">
+                    <span class="btn-glow"></span>
+                    카드 뽑기 시작
+                </button>
+            </div>
+        </section>
+
+        <!-- 3. 카드 셔플 & 선택 페이지 -->
+        <section id="shuffle-page" class="page">
+            <button class="back-btn" onclick="goToPage('question-page')">
+                <span>←</span> 돌아가기
+            </button>
+            
+            <div class="shuffle-content">
+                <h2 id="shuffle-instruction">카드를 섞고 있습니다...</h2>
+                <p class="shuffle-subtitle">마음을 집중하고 질문을 떠올려주세요</p>
+                
+                <!-- 카드 덱 -->
+                <div class="card-deck" id="card-deck">
+                    <!-- 카드들이 여기에 동적으로 생성됩니다 -->
+                </div>
+                
+                <!-- 선택 정보 -->
+                <div class="selection-info">
+                    <span id="cards-selected">0</span> / <span id="cards-needed">1</span> 카드 선택됨
+                </div>
+                
+                <!-- 확인 버튼 -->
+                <button class="reveal-btn hidden" id="reveal-btn" onclick="revealCards()">
+                    선택한 카드 확인하기
+                </button>
+            </div>
+        </section>
+
+        <!-- 4. 타로 백과사전 페이지 -->
+        <section id="library-page" class="page">
+            <button class="back-btn" onclick="goToPage('main-page')">
+                <span>←</span> 돌아가기
+            </button>
+            
+            <div class="library-content">
+                <!-- 헤더 -->
+                <div class="library-header">
+                    <h2 class="library-title">타로 카드 백과사전</h2>
+                    <p class="library-subtitle">78장의 타로 카드 의미를 탐색하세요</p>
+                    
+                    <!-- 카테고리 필터 -->
+                    <div class="library-filters">
+                        <button class="filter-btn active" data-category="all" onclick="filterCards('all')">전체</button>
+                        <button class="filter-btn" data-category="major" onclick="filterCards('major')">메이저 아르카나</button>
+                        <button class="filter-btn" data-category="wands" onclick="filterCards('wands')">완드</button>
+                        <button class="filter-btn" data-category="cups" onclick="filterCards('cups')">컵</button>
+                        <button class="filter-btn" data-category="swords" onclick="filterCards('swords')">소드</button>
+                        <button class="filter-btn" data-category="pentacles" onclick="filterCards('pentacles')">펜타클</button>
+                    </div>
+                    
+                    <!-- 검색 기능 -->
+                    <div class="library-search">
+                        <input 
+                            type="text" 
+                            id="card-search" 
+                            class="search-input" 
+                            placeholder="카드 이름으로 검색..."
+                            oninput="searchCards(this.value)"
+                        >
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+                
+                <!-- 카드 리스트 -->
+                <div class="card-library-grid" id="card-library-grid">
+                    <!-- 카드들이 동적으로 생성됩니다 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 카드 상세 페이지 -->
+        <section id="card-detail-page" class="page">
+            <button class="back-btn" onclick="goToLibraryPage()">
+                <span>←</span> 백과사전으로
+            </button>
+            
+            <div class="card-detail-content" id="card-detail-content">
+                <!-- 카드 상세 내용이 동적으로 생성됩니다 -->
+            </div>
+        </section>
+
+        <!-- 6. 문의하기 페이지 -->
+        <section id="contact-page" class="page">
+            <button class="back-btn" onclick="goToPage('main-page')">
+                <span>←</span> 돌아가기
+            </button>
+            
+            <div class="contact-content">
+                <!-- 헤더 -->
+                <h2 class="contact-title">문의하기</h2>
+                <p class="contact-subtitle">궁금한 점이나 건의사항이 있으시면 언제든지 연락주세요</p>
+                
+                <!-- 문의 폼 -->
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form" onsubmit="handleContactSubmit(event)">
+                        <!-- 이름 입력 -->
+                        <div class="form-group">
+                            <label for="contact-name" class="form-label">이름</label>
+                            <input 
+                                type="text" 
+                                id="contact-name" 
+                                name="name" 
+                                class="form-input" 
+                                placeholder="이름을 입력해주세요"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- 이메일 입력 -->
+                        <div class="form-group">
+                            <label for="contact-email" class="form-label">이메일</label>
+                            <input 
+                                type="email" 
+                                id="contact-email" 
+                                name="email" 
+                                class="form-input" 
+                                placeholder="이메일을 입력해주세요"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- 제목 입력 -->
+                        <div class="form-group">
+                            <label for="contact-subject" class="form-label">제목</label>
+                            <input 
+                                type="text" 
+                                id="contact-subject" 
+                                name="subject" 
+                                class="form-input" 
+                                placeholder="문의 제목을 입력해주세요"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- 내용 입력 -->
+                        <div class="form-group">
+                            <label for="contact-message" class="form-label">내용</label>
+                            <textarea 
+                                id="contact-message" 
+                                name="message" 
+                                class="form-textarea" 
+                                rows="8"
+                                placeholder="문의 내용을 자세히 입력해주세요"
+                                required
+                            ></textarea>
+                        </div>
+                        
+                        <!-- 안내 문구 -->
+                        <div class="form-notice">
+                            <p>※ 문의하신 내용에 대한 답변은 입력하신 이메일로 전송됩니다.</p>
+                            <p>※ 응답까지 다소 시간이 걸릴 수 있습니다.</p>
+                        </div>
+                        
+                        <!-- 제출 버튼 -->
+                        <button type="submit" class="contact-submit-btn">
+                            <span class="btn-glow"></span>
+                            문의하기
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- 연락처 정보 -->
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <span class="info-icon">📧</span>
+                        <div>
+                            <h4>이메일 문의</h4>
+                            <p>contact@mystictarot.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="info-icon">⏰</span>
+                        <div>
+                            <h4>응답 시간</h4>
+                            <p>평일 기준 1-3일 이내</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. 카드 결과 페이지 -->
+        <section id="result-page" class="page">
+            <div class="result-content">
+                <!-- 제목 -->
+                <h2 class="result-title">당신의 타로 리딩</h2>
+                <p class="user-question" id="display-question"></p>
+                
+                <!-- 결과 카드 -->
+                <div class="cards-result" id="cards-result">
+                    <!-- 결과 카드들이 여기에 표시됩니다 -->
+                </div>
+                
+                <!-- 액션 버튼 -->
+                <div class="result-actions">
+                    <button class="action-btn" onclick="resetReading()">
+                        <span>🔄</span> 다시 뽑기
+                    </button>
+                    <button class="action-btn" onclick="goToPage('main-page')">
+                        <span>🏠</span> 처음으로
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ======================================== -->
+    <!-- 모달 팝업 -->
+    <!-- ======================================== -->
+    
+    <!-- 카드 상세보기 모달 -->
+    <div class="modal" id="card-modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-card-image">
+                <img id="modal-card-img" src="" alt="">
+            </div>
+            <div class="modal-card-info">
+                <h3 id="modal-card-name"></h3>
+                <span class="modal-card-position" id="modal-card-position"></span>
+                <div class="modal-card-meaning" id="modal-card-meaning"></div>
+                <div class="modal-card-fun" id="modal-card-fun"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 정책 모달 -->
+    <div class="policy-modal" id="policy-modal">
+        <div class="policy-modal-overlay" onclick="closePolicyModal()"></div>
+        <div class="policy-modal-content">
+            <button class="policy-modal-close" onclick="closePolicyModal()">×</button>
+            <div class="policy-modal-body" id="policy-content"></div>
+        </div>
+    </div>
+
+    <!-- ======================================== -->
+    <!-- 푸터 -->
+    <!-- ======================================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- 메인 콘텐츠 -->
+            <div class="footer-content">
+                <!-- 브랜드 정보 -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Mystic Tarot</h3>
+                    <p class="footer-description">
+                        신비로운 타로 카드 리딩을 통해 당신의 운명을 탐색하고<br>
+                        내면의 지혜를 찾아보세요.
+                    </p>
+                </div>
+                
+                <!-- 이용 안내 -->
+                <div class="footer-section">
+                    <h4 class="footer-heading">이용 안내</h4>
+                    <ul class="footer-links">
+                        <li><a href="#terms" onclick="openPolicy('terms')">이용약관</a></li>
+                        <li><a href="#privacy" onclick="openPolicy('privacy')">개인정보처리방침</a></li>
+                        <li><a href="#about" onclick="openPolicy('about')">서비스 소개</a></li>
+                        <li><a href="#contact" onclick="goToContactPage()">문의하기</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 법적 고지 -->
+                <div class="footer-section">
+                    <h4 class="footer-heading">법적 고지</h4>
+                    <ul class="footer-links">
+                        <li><a href="#disclaimer" onclick="openPolicy('disclaimer')">면책조항</a></li>
+                        <li><a href="#copyright" onclick="openPolicy('copyright')">저작권 안내</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 하단 정보 -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 Mystic Tarot. All rights reserved.
+                </p>
+                <p class="footer-note">
+                    본 서비스는 오락 목적으로 제공되며, 실제 의사결정에 참고용으로만 사용하시기 바랍니다.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================================== -->
+    <!-- 스크립트 -->
+    <!-- ======================================== -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/library.js"></script>
+</body>
+</html>
+
