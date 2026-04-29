@@ -40,86 +40,91 @@ const spreadInfo = {
 };
 
 // 카드 이미지 경로 매핑
-const cardImageMap = {
-    0: '00_the_fool.json00_the_fool.json.png',
-    1: '00_the_fool.json00_the_fool.json.png',
-    2: '00_the_fool.json00_the_fool.json.png',
-    3: '00_the_fool.json00_the_fool.json.png',
-    4: '00_the_fool.json00_the_fool.json.png',
-    5: '00_the_fool.json00_the_fool.json.png',
-    6: '00_the_fool.json00_the_fool.json.png',
-    7: '00_the_fool.json00_the_fool.json.png',
-    8: '00_the_fool.json00_the_fool.json.png',
-    9: '00_the_fool.json00_the_fool.json.png',
-    10: '00_the_fool.json00_the_fool.json.png',
-    11: '00_the_fool.json00_the_fool.json.png',
-    12: '00_the_fool.json00_the_fool.json.png',
-    13: '00_the_fool.json00_the_fool.json.png',
-    14: '00_the_fool.json00_the_fool.json.png',
-    15: '00_the_fool.json00_the_fool.json.png',
-    16: '00_the_fool.json00_the_fool.json.png',
-    17: '00_the_fool.json00_the_fool.json.png',
-    18: '00_the_fool.json00_the_fool.json.png',
-    19: '00_the_fool.json00_the_fool.json.png',
-    20: '00_the_fool.json00_the_fool.json.png',
-    21: '00_the_fool.json00_the_fool.json.png',
-    22: '00_the_fool.json00_the_fool.json.png',
-    23: '00_the_fool.json00_the_fool.json.png',
-    24: '00_the_fool.json00_the_fool.json.png',
-    25: '00_the_fool.json00_the_fool.json.png',
-    26: '00_the_fool.json00_the_fool.json.png',
-    27: '00_the_fool.json00_the_fool.json.png',
-    28: '00_the_fool.json00_the_fool.json.png',
-    29: '00_the_fool.json00_the_fool.json.png',
-    30: '00_the_fool.json00_the_fool.json.png',
-    31: '00_the_fool.json00_the_fool.json.png',
-    32: '00_the_fool.json00_the_fool.json.png',
-    33: '00_the_fool.json00_the_fool.json.png',
-    34: '00_the_fool.json00_the_fool.json.png',
-    35: '00_the_fool.json00_the_fool.json.png',
-    36: '00_the_fool.json00_the_fool.json.png',
-    37: '00_the_fool.json00_the_fool.json.png',
-    38: '00_the_fool.json00_the_fool.json.png',
-    39: '00_the_fool.json00_the_fool.json.png',
-    40: '00_the_fool.json00_the_fool.json.png',
-    41: '00_the_fool.json00_the_fool.json.png',
-    42: '00_the_fool.json00_the_fool.json.png',
-    43: '00_the_fool.json00_the_fool.json.png',
-    44: '00_the_fool.json00_the_fool.json.png',
-    45: '00_the_fool.json00_the_fool.json.png',
-    46: '00_the_fool.json00_the_fool.json.png',
-    47: '00_the_fool.json00_the_fool.json.png',
-    48: '00_the_fool.json00_the_fool.json.png',
-    49: '00_the_fool.json00_the_fool.json.png',
-    50: '00_the_fool.json00_the_fool.json.png',
-    51: '00_the_fool.json00_the_fool.json.png',
-    52: '00_the_fool.json00_the_fool.json.png',
-    53: '00_the_fool.json00_the_fool.json.png',
-    54: '00_the_fool.json00_the_fool.json.png',
-    55: '00_the_fool.json00_the_fool.json.png',
-    56: '00_the_fool.json00_the_fool.json.png',
-    57: '00_the_fool.json00_the_fool.json.png',
-    58: '00_the_fool.json00_the_fool.json.png',
-    59: '00_the_fool.json00_the_fool.json.png',
-    60: '00_the_fool.json00_the_fool.json.png',
-    61: '00_the_fool.json00_the_fool.json.png',
-    62: '00_the_fool.json00_the_fool.json.png',
-    63: '00_the_fool.json00_the_fool.json.png',
-    64: '00_the_fool.json00_the_fool.json.png',
-    65: '00_the_fool.json00_the_fool.json.png',
-    66: '00_the_fool.json00_the_fool.json.png',
-    67: '00_the_fool.json00_the_fool.json.png',
-    68: '00_the_fool.json00_the_fool.json.png',
-    69: '00_the_fool.json00_the_fool.json.png',
-    70: '00_the_fool.json00_the_fool.json.png',
-    71: '00_the_fool.json00_the_fool.json.png',
-    72: '00_the_fool.json00_the_fool.json.png',
-    73: '00_the_fool.json00_the_fool.json.png',
-    74: '00_the_fool.json00_the_fool.json.png',
-    75: '00_the_fool.json00_the_fool.json.png',
-    76: '00_the_fool.json00_the_fool.json.png',
-    77: '00_the_fool.json00_the_fool.json.png'
-};
+const cardImageMap = [
+    // Major Arcana (0-21)
+    '00_the_fool.json.png',
+    '01_the_magician.json.png',
+    '02_the_high_priestess.json.png',
+    '03_the_empress.json.png',
+    '04_the_emperor.json.png',
+    '05_the_hierophant.json.png',
+    '06_the_lovers.json.png',
+    '07_the_chariot.json.png',
+    '08_strength.json.png',
+    '09_the_hermit.json.png',
+    '10_wheel_of_fortune.json.png',
+    '11_justice.json.png',
+    '12_the_hanged_man.json.png',
+    '13_death.json.png',
+    '14_temperance.json.png',
+    '15_the_devil.json.png',
+    '16_the_tower.json.png',
+    '17_the_star.json.png',
+    '18_the_moon.json.png',
+    '19_the_sun.json.png',
+    '20_judgement.json.png',
+    '21_the_world.json.png',
+    // Minor Arcana - Wands (22-35)
+    '22_ace_of_wands.json.png',
+    '23_two_of_wands.json.png',
+    '24_three_of_wands.json.png',
+    '25_four_of_wands.json.png',
+    '26_five_of_wands.json.png',
+    '27_six_of_wands.json.png',
+    '28_seven_of_wands.json.png',
+    '29_eight_of_wands.json.png',
+    '30_nine_of_wands.json.png',
+    '31_ten_of_wands.json.png',
+    '32_page_of_wands.json.png',
+    '33_knight_of_wands.json.png',
+    '34_queen_of_wands.json.png',
+    '35_king_of_wands.json.png',
+    // Minor Arcana - Cups (36-49)
+    '36_ace_of_cups.json.png',
+    '37_two_of_cups.json.png',
+    '38_three_of_cups.json.png',
+    '39_four_of_cups.json.png',
+    '40_five_of_cups.json.png',
+    '41_six_of_cups.json.png',
+    '42_seven_of_cups.json.png',
+    '43_eight_of_cups.json.png',
+    '44_nine_of_cups.json.png',
+    '45_ten_of_cups.json.png',
+    '46_page_of_cups.json.png',
+    '47_knight_of_cups.json.png',
+    '48_queen_of_cups.json.png',
+    '49_king_of_cups.json.png',
+    // Minor Arcana - Swords (50-63)
+    '50_ace_of_swords.json.png',
+    '51_two_of_swords.json.png',
+    '52_three_of_swords.json.png',
+    '53_four_of_swords.json.png',
+    '54_five_of_swords.json.png',
+    '55_six_of_swords.json.png',
+    '56_seven_of_swords.json.png',
+    '57_eight_of_swords.json.png',
+    '58_nine_of_swords.json.png',
+    '59_ten_of_swords.json.png',
+    '60_page_of_swords.json.png',
+    '61_knight_of_swords.json.png',
+    '62_queen_of_swords.json.png',
+    '63_king_of_swords.json.png',
+    // Minor Arcana - Pentacles (64-77)
+    '64_ace_of_pentacles.json.png',
+    '65_two_of_pentacles.json.png',
+    '66_three_of_pentacles.json.png',
+    '67_four_of_pentacles.json.png',
+    '68_five_of_pentacles.json.png',
+    '69_six_of_pentacles.json.png',
+    '70_seven_of_pentacles.json.png',
+    '71_eight_of_pentacles.json.png',
+    '72_nine_of_pentacles.json.png',
+    '73_ten_of_pentacles.json.png',
+    '74_page_of_pentacles.json.png',
+    '75_knight_of_pentacles.json.png',
+    '76_queen_of_pentacles.json.png',
+    '77_king_of_pentacles.json.png'
+];
 
 // JSON 파일 경로 매핑
 const cardJsonPaths = [
@@ -332,21 +337,19 @@ function shuffleCards() {
     const deck = document.getElementById('card-deck');
     const instruction = document.getElementById('shuffle-instruction');
     const revealBtn = document.getElementById('reveal-btn');
-    
+
     deck.innerHTML = '';
-    deck.classList.remove('fanned');
+    deck.classList.remove('fanned', 'fan-scroll');
     revealBtn.classList.add('hidden');
     instruction.textContent = '카드를 섞고 있습니다...';
-    
-    // 카드 생성 (표시할 카드 수)
-    const displayCount = Math.min(30, allCards.length);
-    
-    // 카드를 덱처럼 쌓기
-    for (let i = 0; i < displayCount; i++) {
+
+    // 셔플 애니메이션용 카드 20장 (덱처럼 쌓기)
+    const shuffleCount = 20;
+    for (let i = 0; i < shuffleCount; i++) {
         const card = document.createElement('div');
         card.className = 'tarot-card deck-card';
         card.dataset.index = i;
-        card.style.zIndex = displayCount - i;
+        card.style.zIndex = shuffleCount - i;
         card.style.transform = `translate(${i * 0.5}px, ${i * 0.5}px)`;
         card.style.position = 'absolute';
         card.style.left = '50%';
@@ -355,65 +358,100 @@ function shuffleCards() {
         card.style.marginTop = '-65px';
         deck.appendChild(card);
     }
-    
+
     // 1단계: 카드를 덱 중앙으로 모으기
     setTimeout(() => {
         document.querySelectorAll('.tarot-card').forEach((card, i) => {
             card.classList.add('shuffling');
             card.style.transition = 'all 0.5s ease-in-out';
             card.style.transform = `translate(0, 0) rotate(${(i % 2) * 2 - 1}deg)`;
-            card.style.zIndex = displayCount + i;
+            card.style.zIndex = shuffleCount + i;
         });
     }, 300);
-    
-    // 2단계: 실제로 섞는 애니메이션
+
+    // 2단계: 섞는 애니메이션
     setTimeout(() => {
         document.querySelectorAll('.tarot-card').forEach((card, i) => {
             const delay = (i % 6) * 0.1;
             card.style.animation = `shuffleMove 0.8s ease-in-out ${delay}s infinite`;
         });
     }, 800);
-    
-    // 3단계: 카드를 펼치기
+
+    // 3단계: 스크롤 부채꼴로 전환
     setTimeout(() => {
         isShuffling = false;
-        deck.classList.add('fanned');
-        
-        const cards = document.querySelectorAll('.tarot-card');
-        const totalCards = cards.length;
-        
-        // 카드를 부채꼴로 펼치기
-        cards.forEach((card, i) => {
-            card.classList.remove('shuffling', 'deck-card');
-            card.style.animation = '';
-            card.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            card.style.position = 'absolute';
-            card.style.left = '50%';
-            card.style.top = '60%'; // 카드를 더 아래로 배치하여 상단 텍스트를 가리지 않게
-            card.style.marginLeft = '-40px';
-            card.style.marginTop = '-65px';
-            
-            // 부채꼴 계산 - 더 넓게 펼치기
-            const angleRange = Math.min(180, totalCards * 5); // 전체 각도 범위 (140 -> 180도)
-            const angleStep = totalCards > 1 ? angleRange / (totalCards - 1) : 0;
-            const startAngle = -angleRange / 2;
-            const angle = startAngle + (i * angleStep);
-            const radius = 250; // 반지름 증가 (180 -> 250px)
-            
-            const radian = (angle * Math.PI) / 180;
-            const x = Math.sin(radian) * radius;
-            const y = -Math.cos(radian) * radius;
-            
-            card.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg)`;
+
+        // 기존 셔플 카드 제거 후 78장으로 재생성
+        deck.innerHTML = '';
+        deck.classList.add('fan-scroll');
+
+        const totalCards = allCards.length; // 78장
+        const angleRange = 160;             // 부채꼴 전체 각도
+        const angleStep = angleRange / (totalCards - 1);
+        const startAngle = -angleRange / 2;
+        const radius = 600;                 // 반지름 (클수록 카드 간격 넓어짐)
+        const cardW = 80;
+        const cardH = 130;
+
+        // 스크롤 컨테이너 너비 계산
+        // 가장 왼쪽/오른쪽 카드의 x 위치를 기준으로 패딩 결정
+        const leftmost  = Math.sin((startAngle * Math.PI) / 180) * radius;
+        const rightmost = Math.sin(((startAngle + angleRange) * Math.PI) / 180) * radius;
+        const totalWidth = (rightmost - leftmost) + cardW + 200; // 여유 패딩
+
+        // 컨테이너 높이: 반지름 + 카드 높이 + 여유
+        const containerH = radius * (1 - Math.cos((angleRange / 2 * Math.PI) / 180)) + cardH + 120;
+        deck.style.width = totalWidth + 'px';
+        deck.style.height = containerH + 'px';
+
+        // 기준점: 컨테이너 하단 중앙
+        const originX = totalWidth / 2;
+        const originY = containerH - 20;
+
+        for (let i = 0; i < totalCards; i++) {
+            const card = document.createElement('div');
+            card.className = 'tarot-card fan-card';
             card.dataset.index = i;
+
+            const angle = startAngle + i * angleStep;
+            const radian = (angle * Math.PI) / 180;
+            const x = originX + Math.sin(radian) * radius - cardW / 2;
+            const y = originY - Math.cos(radian) * radius - cardH / 2;
+
+            card.style.position = 'absolute';
+            card.style.left = x + 'px';
+            card.style.top = y + 'px';
+            card.style.transformOrigin = 'center bottom';
+            card.style.transform = `rotate(${angle}deg)`;
+            card.style.zIndex = i + 1;
+            card.dataset.fanAngle = angle;
+            // 펼치기 애니메이션 딜레이
+            card.style.opacity = '0';
+            card.style.transition = `opacity 0.3s ease ${i * 0.008}s, transform 0.4s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.008}s`;
+
+            deck.appendChild(card);
+        }
+
+        // 카드 페이드인
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.fan-card').forEach(card => {
+                    card.style.opacity = '1';
+                });
+            });
         });
-        
-        instruction.textContent = '마음이 이끄는 카드를 선택하세요';
-        
-        // 펼쳐진 후 선택 가능
+
+        // 스크롤을 중앙으로 초기화
+        const wrapper = document.getElementById('fan-scroll-wrapper');
+        if (wrapper) {
+            wrapper.scrollLeft = (totalWidth - wrapper.clientWidth) / 2;
+        }
+
+        instruction.textContent = '← 스크롤하여 마음이 이끄는 카드를 선택하세요 →';
+
         setTimeout(() => {
             enableCardSelection();
-        }, 700);
+        }, totalCards * 8 + 400);
     }, 2800);
 }
 
@@ -423,68 +461,83 @@ function shuffleCards() {
 function enableCardSelection() {
     const spread = spreadInfo[currentSpread];
     const neededCount = spread.count;
-    
-    document.querySelectorAll('.tarot-card').forEach(card => {
-        // 중복 이벤트 방지를 위해 한 번만 추가
+
+    document.querySelectorAll('.fan-card').forEach(card => {
         if (card.dataset.listener === 'true') return;
         card.dataset.listener = 'true';
-        
+
         card.addEventListener('click', function() {
             if (isShuffling) return;
-            
+
             const index = parseInt(this.dataset.index);
             const cardElement = this;
-            
+
             if (cardElement.classList.contains('selected')) {
-                // 선택 취소
+                // 선택 취소 — 원래 부채꼴 위치/회전 복원
+                const angle = cardElement.dataset.fanAngle;
                 cardElement.classList.remove('selected', 'flipped');
                 cardElement.style.backgroundImage = '';
-                cardElement.style.transform = '';
+                cardElement.style.transform = `rotate(${angle}deg)`;
+                cardElement.style.zIndex = index + 1;
                 selectedCards = selectedCards.filter(c => c.displayIndex !== index);
                 updateSelectionUI();
             } else if (selectedCards.length < neededCount) {
                 // 새 카드 선택
                 cardElement.classList.add('flipping');
                 cardElement.style.pointerEvents = 'none';
-                
-                // 카드 뒤집기 애니메이션
+
                 setTimeout(() => {
                     // 랜덤 카드 선택 (중복 방지)
                     let randomCardIndex;
                     const usedIndices = selectedCards.map(c => c.cardIndex);
-                    
                     do {
                         randomCardIndex = Math.floor(Math.random() * allCards.length);
                     } while (usedIndices.includes(randomCardIndex));
-                    
-                    // 정방향/역방향 랜덤 결정
+
                     const isReversed = Math.random() < 0.3;
-                    
-                    // 카드 이미지 표시
                     const cardData = allCards[randomCardIndex];
+
                     cardElement.style.backgroundImage = `url(${cardData.imagePath})`;
                     cardElement.style.backgroundSize = 'cover';
                     cardElement.style.backgroundPosition = 'center';
                     cardElement.classList.remove('flipping');
                     cardElement.classList.add('flipped', 'selected');
                     cardElement.style.pointerEvents = 'auto';
-                    
-                    // 역방향이면 180도 회전
-                    const currentTransform = window.getComputedStyle(cardElement).transform;
-                    if (isReversed) {
-                        cardElement.style.transform = currentTransform + ' rotate(180deg)';
-                    }
-                    
+                    cardElement.style.zIndex = 500 + selectedCards.length;
+
+                    // 선택된 카드는 똑바로 세우고 위로 올리기
+                    const liftY = isReversed ? 'translateY(-40px) rotate(180deg)' : 'translateY(-40px)';
+                    cardElement.style.transform = liftY;
+
                     selectedCards.push({
                         displayIndex: index,
                         cardIndex: randomCardIndex,
                         card: cardData,
                         isReversed: isReversed
                     });
-                    
+
                     updateSelectionUI();
                 }, 300);
             }
+        });
+
+        // 호버 시 카드 위로 살짝 올리기
+        card.addEventListener('mouseenter', function() {
+            if (isShuffling || this.classList.contains('selected') || this.classList.contains('disabled')) return;
+            const angle = this.dataset.fanAngle || '0';
+            this.style.transform = `rotate(${angle}deg) translateY(-20px)`;
+            this.style.zIndex = 300;
+            this.style.borderColor = 'var(--accent-gold)';
+            this.style.boxShadow = '0 10px 30px rgba(212,175,55,0.5)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            if (this.classList.contains('selected')) return;
+            const angle = this.dataset.fanAngle || '0';
+            this.style.transform = `rotate(${angle}deg)`;
+            this.style.zIndex = parseInt(this.dataset.index) + 1;
+            this.style.borderColor = '';
+            this.style.boxShadow = '';
         });
     });
 }
@@ -507,7 +560,7 @@ function updateSelectionUI() {
     }
     
     // 선택 완료 시 나머지 카드 비활성화
-    document.querySelectorAll('.tarot-card').forEach(card => {
+    document.querySelectorAll('.fan-card').forEach(card => {
         if (selectedCount >= neededCount && !card.classList.contains('selected')) {
             card.classList.add('disabled');
         } else {
@@ -631,9 +684,48 @@ function resetReading() {
 }
 
 // ========================================
+// 팬 스크롤 래퍼 드래그 스크롤
+// ========================================
+function initFanScrollDrag() {
+    const wrapper = document.getElementById('fan-scroll-wrapper');
+    if (!wrapper) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    wrapper.addEventListener('mousedown', (e) => {
+        // 카드 클릭과 구분: 드래그 시작점 기록
+        isDown = true;
+        wrapper.classList.add('dragging');
+        startX = e.pageX - wrapper.offsetLeft;
+        scrollLeft = wrapper.scrollLeft;
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+        isDown = false;
+        wrapper.classList.remove('dragging');
+    });
+
+    wrapper.addEventListener('mouseup', () => {
+        isDown = false;
+        wrapper.classList.remove('dragging');
+    });
+
+    wrapper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - wrapper.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        wrapper.scrollLeft = scrollLeft - walk;
+    });
+}
+
+// ========================================
 // 초기화
 // ========================================
 document.addEventListener('DOMContentLoaded', async () => {
     await loadAllCards();
+    initFanScrollDrag();
     console.log('Mystic Tarot 초기화 완료');
 });
